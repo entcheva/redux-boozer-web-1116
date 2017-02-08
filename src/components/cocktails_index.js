@@ -9,18 +9,19 @@ class CocktailsIndex extends React.Component {
       this.props.fetchCocktails()
   }
 
-  handleClick(){
-    return < CocktailsShow id={cocktail.id}/>
+  handleClick(event){
+    event.preventDefault()
+    debugger
+
   }
 
   render() {
     const cocktailsss = this.props.cocktails
     return (
-      {debugger}
       <div>
         <h1>All da cocktails</h1>
         <ul>
-          { cocktailsss.map((cocktail) => <li key={cocktail.id} onClick={this.handleClick.bind(this)}>{cocktail.name}</li>)}
+          { cocktailsss.map((cocktail) => <li key={cocktail.id} id={cocktail.id} onClick={this.handleClick.bind(this)}>{cocktail.name}</li>)}
         </ul>
       </div>
     )
