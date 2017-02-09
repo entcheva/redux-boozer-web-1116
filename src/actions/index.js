@@ -9,9 +9,9 @@ export function fetchCocktails() {
   }
 }
 
-export function showCocktail(){
+export function updateCurrentCocktail(id) {
   return {
     type: 'SHOW_COCKTAIL',
-    payload: defaultCocktails
+    payload: id
   }
 }
