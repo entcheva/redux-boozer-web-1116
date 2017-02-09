@@ -6,27 +6,20 @@ class CocktailsShow extends React.Component {
 
 
   render(){
-    const cocktail = this.props.cocktail
     return (
       <div>
         <h2>Cocktail Show</h2>
-        <p></p>
+        <h1>{this.props.cocktail.name}</h1>
+        <p>{this.props.cocktail.description}</p>
       </div>
 
     )
   }
 }
 function mapStateToProps(state) {
-  return { cocktail: state.cocktail }
+  const cocktail = state.cocktails.find( cocktail => cocktail.id === state.currentCocktail ) || {}
+  return { cocktail: cocktail,
+   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    showCocktail: function() {
-      let action = showCocktail()
-      dispatch(action)
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CocktailsShow)
+export default connect(mapStateToProps)(CocktailsShow)
